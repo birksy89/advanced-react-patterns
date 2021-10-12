@@ -7,13 +7,11 @@ import {Switch} from '../switch'
 // 🐨 create your ToggleContext context here
 // 📜 https://reactjs.org/docs/context.html#reactcreatecontext
 const ToggleContext = React.createContext()
+ToggleContext.displayName = 'ToggleContext'
 
 function Toggle({children}) {
   const [on, setOn] = React.useState(false)
   const toggle = () => setOn(!on)
-
-  // 🐨 remove all this 💣 and instead return <ToggleContext.Provider> where
-  // the value is an object that has `on` and `toggle` on it.
 
   const value = {on, toggle}
   return (
@@ -28,7 +26,6 @@ const useToggle = () => {
     throw new Error('You must wrap your components with <Toggle/>')
   }
 
-  console.log(context)
   return context
 }
 
@@ -47,7 +44,6 @@ function ToggleOn({children}) {
 // 🐨 do the same thing to this that you did to the ToggleOn component
 function ToggleOff({children}) {
   const {on} = useToggle()
-  console.log(on)
   return on ? null : children
 }
 
