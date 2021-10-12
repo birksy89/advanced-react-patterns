@@ -71,11 +71,9 @@ function App() {
         }
         return {on: !state.on}
       }
-      case 'reset': {
-        return {on: false}
-      }
+
       default: {
-        throw new Error(`Unsupported type: ${action.type}`)
+        return toggleReducer(state, action)
       }
     }
   }
