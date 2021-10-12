@@ -17,7 +17,7 @@ function Toggle(props) {
   // return <Switch on={on} onClick={toggle} />
   return React.Children.map(props.children, child => {
     if (typeof child.type === 'string') {
-      return React.cloneElement(child)
+      return child
     }
     return React.cloneElement(child, {toggle, on})
   })
